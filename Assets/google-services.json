@@ -1,0 +1,239 @@
+{
+  "project_info": {
+    "project_number": "1045679823610",
+    "firebase_url": "https://kinet-516b8-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "kinet-516b8",
+    "storage_bucket": "kinet-516b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045679823610:android:8d340fb41ca93a22708743",
+        "android_client_info": {
+          "package_name": "com.QeneGames.Dama"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045679823610-fr9fd227n0oer2391e0l1eeqjcnaf9u2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.QeneGames.Dama",
+            "certificate_hash": "db38f2c0aad26d5d8b21b8a620f874b9520d0617"
+          }
+        },
+        {
+          "client_id": "1045679823610-fvq3c5av5uhf7vc6umtmujqntc9tovaf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.QeneGames.Dama",
+            "certificate_hash": "9fae1939cc6d64b83b99c579cd17420fc29fb4b7"
+          }
+        },
+        {
+          "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDkaO9Rq9XZSyGTxOCLOBE9Qa_MFKs6Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1045679823610-e0u9rff99c9k7ahn07278gtrg4a8qhud.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.qenegames.kukulu"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045679823610:android:354dac84352aedfb708743",
+        "android_client_info": {
+          "package_name": "com.QeneGames.MathGame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDkaO9Rq9XZSyGTxOCLOBE9Qa_MFKs6Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1045679823610-e0u9rff99c9k7ahn07278gtrg4a8qhud.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.qenegames.kukulu"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045679823610:android:35e930d6e7d40208708743",
+        "android_client_info": {
+          "package_name": "com.kinet.geo_guess"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDkaO9Rq9XZSyGTxOCLOBE9Qa_MFKs6Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1045679823610-e0u9rff99c9k7ahn07278gtrg4a8qhud.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.qenegames.kukulu"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045679823610:android:f9483f2d509ce53d708743",
+        "android_client_info": {
+          "package_name": "com.kinetstore.kukulu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045679823610-4t8phakggr3i777krb9e6jug5imsbgkl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kinetstore.kukulu",
+            "certificate_hash": "fbab4764f5f0102e213e2c9ee3ab3a95e50fe182"
+          }
+        },
+        {
+          "client_id": "1045679823610-nvnvths6oqa94e6rkgjeq7sbh3b2s8mn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kinetstore.kukulu",
+            "certificate_hash": "03ff11b6ad97d1011e8e1c387fbcb41534aa6bb1"
+          }
+        },
+        {
+          "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDkaO9Rq9XZSyGTxOCLOBE9Qa_MFKs6Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1045679823610-e0u9rff99c9k7ahn07278gtrg4a8qhud.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.qenegames.kukulu"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045679823610:android:d5333a597d0a47cd708743",
+        "android_client_info": {
+          "package_name": "com.qene.tras"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045679823610-6jtqar48qeijqouo059onojr6vpc7bn6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qene.tras",
+            "certificate_hash": "f98c8d79b931fd7d8c4e822d7f3ae710fd467adb"
+          }
+        },
+        {
+          "client_id": "1045679823610-9s69vlvt7r5gu09861ta72u81e4ldhu3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qene.tras",
+            "certificate_hash": "67b76bc9533a0cf51379cabad64053433da889c3"
+          }
+        },
+        {
+          "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDkaO9Rq9XZSyGTxOCLOBE9Qa_MFKs6Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1045679823610-e0u9rff99c9k7ahn07278gtrg4a8qhud.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.qenegames.kukulu"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
