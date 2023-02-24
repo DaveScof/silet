@@ -50,6 +50,11 @@ public class KinetManager : Manager<KinetManager>, KinetSubscription.ServiceToke
     }
 
 
+    public void LogOut()
+    {
+        kinetSubscription.Logout();
+    }
+
 
     //
 }

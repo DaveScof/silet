@@ -32,10 +32,22 @@ public class TournamentManager : Manager<TournamentManager>
         KinetManager.Instance.InitializeAuth(app);
         reference = FirebaseDatabase.GetInstance(app).RootReference;
 
+        reference.Child("activeTournament").ValueChanged += GetTournamentName;
         reference.Child(tournamentName).Child("players").OrderByChild("score").LimitToLast(10).ValueChanged += HandlePlayerValueChanged;
         reference.Child(tournamentName).Child("rules").ValueChanged += HandleTournamentRuleChanged;
     }
 
+    public void GetTournamentName(object sender, ValueChangedEventArgs args)
+    {
+        if (args.DatabaseError != null)
+        {
+            Debug.LogError("Firebase Realtime Database error: " + args.DatabaseError);
+            return;
+        }
+        // DataSnapshot is a snapshot of the data at a Firebase Database location.
+        DataSnapshot snapshot = args.Snapshot;
+        string active = snapshot.Child("active").Value.ToString();
+    }
     public async void GetUserProfile()
     {
         var tournament = await reference.Child(tournamentName).Child("players").Child(KinetManager.Instance.token).GetValueAsync();

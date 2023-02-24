@@ -1,0 +1,6 @@
+[submodule "Assets/Components/Tongues"]
+	path = Assets/Components/Tongues
+	url = https://gitlab.com/qene-unity-components/tongues.git
+[submodule "Assets/Components/Detest"]
+	path = Assets/Components/Detest
+	url = https://gitlab.com/qene-unity-components/detest.git

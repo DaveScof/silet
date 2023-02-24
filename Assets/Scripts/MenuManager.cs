@@ -42,7 +42,6 @@ namespace MenuBarouch
 		void Awake()
 		{
 			SubscriptionAnalytics.SetUpAnalytics(kinetSubscription, (eventId, parameters) => Analys.Analytics.LogEvent(eventId, "KINET", parameters));
-		
 		}
 	
 		public override void AfterInitialized()
