@@ -8,6 +8,9 @@ using Firebase;
 using AppAdvisory.MathGame;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.Linq;
+using UnityEngine.Networking;
+using System.IO;
 
 public class TournamentManager : Manager<TournamentManager>
 {
@@ -17,10 +20,23 @@ public class TournamentManager : Manager<TournamentManager>
     public TournamentRule tournamentRule;
     public TournamentData userTournamentData;
     public string tournamentName = "tournament-1";
+    public Dictionary<int, string> leaderBoardData;
 
+
+    public string cachePath;
+
+    #region events
+
+    public delegate void Notify();
+    public event Notify TournamentDataChangedEvent;
+    public event Notify TournamentImageEvent;
+
+
+    #endregion
 
     private void Start()
     {
+        leaderBoardData = new Dictionary<int, string>();
         app = FirebaseApp.Create(
             options: new Firebase.AppOptions
             {
@@ -29,15 +45,14 @@ public class TournamentManager : Manager<TournamentManager>
                 ProjectId = "tras-9c6ce",
             }
         );
+
         KinetManager.Instance.InitializeAuth(app);
         reference = FirebaseDatabase.GetInstance(app).RootReference;
 
-        reference.Child("activeTournament").ValueChanged += GetTournamentName;
-        reference.Child(tournamentName).Child("players").OrderByChild("score").LimitToLast(10).ValueChanged += HandlePlayerValueChanged;
-        reference.Child(tournamentName).Child("rules").ValueChanged += HandleTournamentRuleChanged;
+        reference.Child("tournament-active").ValueChanged += ActiveTournament;
     }
 
-    public void GetTournamentName(object sender, ValueChangedEventArgs args)
+    public void ActiveTournament(object sender, ValueChangedEventArgs args)
     {
         if (args.DatabaseError != null)
         {
@@ -46,8 +61,13 @@ public class TournamentManager : Manager<TournamentManager>
         }
         // DataSnapshot is a snapshot of the data at a Firebase Database location.
         DataSnapshot snapshot = args.Snapshot;
-        string active = snapshot.Child("active").Value.ToString();
+        Debug.Log(snapshot.Value);
+        tournamentName = snapshot.Value.ToString();
+        reference.Child(tournamentName).Child("rules").ValueChanged += HandleTournamentRuleChanged;
+        reference.Child(tournamentName).Child("players").OrderByChild("score").LimitToLast(10).ValueChanged += HandlePlayerValueChanged;
+
     }
+
     public async void GetUserProfile()
     {
         var tournament = await reference.Child(tournamentName).Child("players").Child(KinetManager.Instance.token).GetValueAsync();
@@ -72,12 +92,15 @@ public class TournamentManager : Manager<TournamentManager>
         }
         // DataSnapshot is a snapshot of the data at a Firebase Database location.
         DataSnapshot snapshot = args.Snapshot;
-        var dict = snapshot.Value as Dictionary<string, object>;
-        foreach (var i in dict)
+        Dictionary<string, object> dict = snapshot.Value as Dictionary<string, object>;
+        leaderBoardData.Clear();
+        foreach (var (i, index) in dict.Select((v, i) => (v, i)))
         {
             var dict2 = i.Value as Dictionary<string, object>;
-            Debug.Log(dict2["score"]);
+            leaderBoardData.Add(index, dict2["score"].ToString());
         }
+        if (TournamentDataChangedEvent != null)
+            TournamentDataChangedEvent.Invoke();
     }
 
     private void HandleTournamentRuleChanged(object sender, ValueChangedEventArgs args)
@@ -90,6 +113,8 @@ public class TournamentManager : Manager<TournamentManager>
         // DataSnapshot is a snapshot of the data at a Firebase Database location.
         DataSnapshot snapshot = args.Snapshot;
         string date = snapshot.Child("endDate").Value.ToString();
+        string imagePath = snapshot.Child("imagePath").Value.ToString();
+        StartCoroutine(CacheImage(imagePath));
         tournamentRule = new TournamentRule(date, snapshot.Child("status").Value.ToString());
     }
 
@@ -121,6 +146,27 @@ public class TournamentManager : Manager<TournamentManager>
                 return;
             }
         });
+    }
+
+    IEnumerator CacheImage(string imageUrl)
+    {
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageUrl);
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.Success)
+        {
+            Texture2D texture = DownloadHandlerTexture.GetContent(www);
+            byte[] bytes = texture.EncodeToPNG();
+
+            File.WriteAllBytes(cachePath, bytes);
+            TournamentImageEvent?.Invoke();
+
+            Debug.Log("Image cached: " + cachePath);
+        }
+        else
+        {
+            Debug.LogError("Failed to cache image: " + www.error);
+        }
     }
 }
 
