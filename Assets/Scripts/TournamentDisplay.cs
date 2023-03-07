@@ -9,25 +9,28 @@ public class TournamentDisplay : MonoBehaviour
 {
     public TMP_Text[] leaderBoards;
     public Image image;
+    public string cachePath;
 
+    private void Start()
+    {
+        TournamentManager.Instance.TournamentImageEvent += LoadImage;
+    }
 
     private void OnEnable()
     {
         DisplayLeaderBoard();
         TournamentManager.Instance.TournamentDataChangedEvent += DisplayLeaderBoard;
-        TournamentManager.Instance.TournamentImageEvent += LoadImage;
         LoadImage();
     }
 
     public void LoadImage()
     {
-        string cachePth = TournamentManager.Instance.cachePath;
-        if (string.IsNullOrEmpty(cachePth))
+        string newCachePath = TournamentManager.Instance.cachePath;
+        if (!newCachePath.Equals(cachePath))
         {
-            Texture2D texture = LoadTextureFromCache(cachePth);
-            image.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0, 0));
+            cachePath = newCachePath;
+            Davinci.get().setCached(true).setEnableLog(true).load(cachePath).setFadeTime(2).into(image).start();
         }
-
     }
 
     Texture2D LoadTextureFromCache(string path)

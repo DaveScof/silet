@@ -114,7 +114,7 @@ public class TournamentManager : Manager<TournamentManager>
         DataSnapshot snapshot = args.Snapshot;
         string date = snapshot.Child("endDate").Value.ToString();
         string imagePath = snapshot.Child("imagePath").Value.ToString();
-        StartCoroutine(CacheImage(imagePath));
+        cachePath = imagePath;
         tournamentRule = new TournamentRule(date, snapshot.Child("status").Value.ToString());
     }
 
@@ -148,26 +148,26 @@ public class TournamentManager : Manager<TournamentManager>
         });
     }
 
-    IEnumerator CacheImage(string imageUrl)
-    {
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageUrl);
-        yield return www.SendWebRequest();
+    // IEnumerator CacheImage(string imageUrl)
+    // {
+    //     UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageUrl);
+    //     yield return www.SendWebRequest();
 
-        if (www.result == UnityWebRequest.Result.Success)
-        {
-            Texture2D texture = DownloadHandlerTexture.GetContent(www);
-            byte[] bytes = texture.EncodeToPNG();
+    //     if (www.result == UnityWebRequest.Result.Success)
+    //     {
+    //         Texture2D texture = DownloadHandlerTexture.GetContent(www);
+    //         byte[] bytes = texture.EncodeToPNG();
 
-            File.WriteAllBytes(cachePath, bytes);
-            TournamentImageEvent?.Invoke();
+    //         File.WriteAllBytes(cachePath, bytes);
+    //         TournamentImageEvent?.Invoke();
 
-            Debug.Log("Image cached: " + cachePath);
-        }
-        else
-        {
-            Debug.LogError("Failed to cache image: " + www.error);
-        }
-    }
+    //         Debug.Log("Image cached: " + cachePath);
+    //     }
+    //     else
+    //     {
+    //         Debug.LogError("Failed to cache image: " + www.error);
+    //     }
+    // }
 }
 
 [JsonConverter(typeof(StringEnumConverter))]
