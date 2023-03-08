@@ -19,7 +19,7 @@ public class TournamentManager : Manager<TournamentManager>
     private FirebaseApp app;
     public TournamentRule tournamentRule;
     public TournamentData userTournamentData;
-    public string tournamentName = "tournament-1";
+    public string tournamentName;
     public Dictionary<int, string> leaderBoardData;
 
 
@@ -34,7 +34,24 @@ public class TournamentManager : Manager<TournamentManager>
 
     #endregion
 
+    private void Awake()
+    {
+        tournamentName = "";
+        tournamentRule = null;
+    }
+    public bool isTournamentAvaiable()
+    {
+        if(tournamentRule == null )
+        {
+            return false;
+        }
+        else
+        {
+            return tournamentRule.status != TournamentStatus.STOPPED;
+        }
+    }
     private void Start()
+
     {
         leaderBoardData = new Dictionary<int, string>();
         app = FirebaseApp.Create(
@@ -62,10 +79,12 @@ public class TournamentManager : Manager<TournamentManager>
         // DataSnapshot is a snapshot of the data at a Firebase Database location.
         DataSnapshot snapshot = args.Snapshot;
         Debug.Log(snapshot.Value);
-        tournamentName = snapshot.Value.ToString();
-        reference.Child(tournamentName).Child("rules").ValueChanged += HandleTournamentRuleChanged;
-        reference.Child(tournamentName).Child("players").OrderByChild("score").LimitToLast(10).ValueChanged += HandlePlayerValueChanged;
-
+        if (snapshot.Value != null)
+        {
+            tournamentName = snapshot.Value.ToString();
+            reference.Child(tournamentName).Child("rules").ValueChanged += HandleTournamentRuleChanged;
+            reference.Child(tournamentName).Child("players").OrderByChild("score").LimitToLast(10).ValueChanged += HandlePlayerValueChanged;
+        }
     }
 
     public async void GetUserProfile()

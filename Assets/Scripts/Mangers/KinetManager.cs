@@ -13,7 +13,7 @@ public class KinetManager : Manager<KinetManager>, KinetSubscription.ServiceToke
     public string PhoneNumber => "251910994481";
     public string token;
 
-    string KinetSubscription.ServiceTokenRequester.Service => "";
+    string KinetSubscription.ServiceTokenRequester.Service => "tras";
     FirebaseAuth auth;
 
     bool KinetSubscription.ServiceTokenRequester.ShouldFetchServiceToken => false;
@@ -21,15 +21,6 @@ public class KinetManager : Manager<KinetManager>, KinetSubscription.ServiceToke
     void Start()
     {
         kinetSubscription.RequestServiceToken(this);
-        kinetSubscription.onFetchSubscriptionStatus += OnL;
-    }
-
-    public void OnL()
-    {
-        Debug.Log("my token is here " + token);
-        this.token = "token-3";
-
-        TournamentManager.Instance.GetUserProfile();
     }
 
     public void InitializeAuth(Firebase.FirebaseApp app)
@@ -45,8 +36,8 @@ public class KinetManager : Manager<KinetManager>, KinetSubscription.ServiceToke
 
     void KinetSubscription.ServiceTokenRequester.OnServiceTokenFetched(string token)
     {
-
-
+        this.token = token;
+        TournamentManager.Instance.GetUserProfile();
     }
 
 

@@ -34,7 +34,7 @@ namespace MenuBarouch
 
         public GameObject KINETSTORE;
 
-        public GameObject TOURNAMENTLEADERBOARD;
+        public LeaderBoardDisplay tournamentPanel;
 
         public Image BACKGROUND_BACK;
 
@@ -56,7 +56,7 @@ namespace MenuBarouch
             MENU.SetActive(true);
             GAME.SetActive(false);
             SETTING.SetActive(false);
-            TOURNAMENTLEADERBOARD.SetActive(false);
+            tournamentPanel.Close();
         }
 
         public void Logout()
@@ -68,7 +68,7 @@ namespace MenuBarouch
         public void OpenTournamentLeaderBoard()
         {
             float time = 0.2f;
-            TOURNAMENTLEADERBOARD.SetActive(true);
+            tournamentPanel.OpenTournament();
         }
 
         //open the game
