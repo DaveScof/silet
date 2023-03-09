@@ -16,7 +16,7 @@ public class KinetManager : Manager<KinetManager>, KinetSubscription.ServiceToke
     string KinetSubscription.ServiceTokenRequester.Service => "tras";
     FirebaseAuth auth;
 
-    bool KinetSubscription.ServiceTokenRequester.ShouldFetchServiceToken => false;
+    bool KinetSubscription.ServiceTokenRequester.ShouldFetchServiceToken => true;
 
     void Start()
     {
@@ -37,7 +37,8 @@ public class KinetManager : Manager<KinetManager>, KinetSubscription.ServiceToke
     void KinetSubscription.ServiceTokenRequester.OnServiceTokenFetched(string token)
     {
         this.token = token;
-        TournamentManager.Instance.GetUserProfile();
+        Debug.Log("toke <=-*-=> " + this.token);
+        TournamentManager.Instance.Login(token);
     }
 
 

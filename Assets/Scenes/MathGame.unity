@@ -436,6 +436,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49103d17ba5db4419e6073d6856aab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &839132035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8223692345544579189, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+  m_PrefabInstance: {fileID: 1399157817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &878585170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -693,7 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: 0
-  apiKey: 
+  apiKey: ' PCX6SQCDW735G7YN8R8J'
 --- !u!1 &1252506123
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +910,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1305065131445883237, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: counterTMP
+      value: 
+      objectReference: {fileID: 839132035}
     - target: {fileID: 2183960681323230686, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       propertyPath: m_IsActive
       value: 0

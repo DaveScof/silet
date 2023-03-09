@@ -26,24 +26,6 @@ namespace AppAdvisory.MathGame
 		public Transform Title;
 
 
-		public Text M;
-
-		public Text A;
-
-		public Text T;
-
-		public Text H;
-
-		public Text G;
-
-		public Text A_;
-
-		public Text M_;
-
-		public Text E;
-
-
-
 		bool firstTime;
 
 		void Awake()
@@ -63,17 +45,6 @@ namespace AppAdvisory.MathGame
 			FirstTimeMenu.SetActive (firstTime);
 			GameOverMenu.SetActive (!firstTime);
 
-			if (!firstTime) 
-			{
-				M.text = "G";
-				A.text = "A";
-				T.text = "M";
-				H.text = "E";
-				G.text = "O";
-				A_.text = "V";
-				M_.text = "E";
-				E.text = "R";
-			}
 
 			firstTime = false;
 		}

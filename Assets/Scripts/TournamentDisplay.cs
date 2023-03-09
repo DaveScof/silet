@@ -9,11 +9,16 @@ public class TournamentDisplay : MonoBehaviour
 {
     public TMP_Text[] leaderBoards;
     public Image image;
+    public TMP_Text counterTMP;
+
+    [Space()]
     public string cachePath;
+    private IEnumerator coroutine;
 
     private void Start()
     {
         TournamentManager.Instance.TournamentImageEvent += LoadImage;
+        coroutine = Counter();
     }
 
     private void OnEnable()
@@ -21,7 +26,13 @@ public class TournamentDisplay : MonoBehaviour
         DisplayLeaderBoard();
         TournamentManager.Instance.TournamentDataChangedEvent += DisplayLeaderBoard;
         LoadImage();
+
+        if (coroutine == null)
+            coroutine = Counter();
+
+        StartCoroutine(coroutine);
     }
+
 
     public void LoadImage()
     {
@@ -33,27 +44,32 @@ public class TournamentDisplay : MonoBehaviour
         }
     }
 
-    Texture2D LoadTextureFromCache(string path)
-    {
-        if (File.Exists(path))
-        {
-            byte[] bytes = File.ReadAllBytes(path);
-            Texture2D texture = new Texture2D(2, 2);
-            texture.LoadImage(bytes);
-            return texture;
-        }
-
-        return null;
-    }
 
     private void OnDisable()
     {
+        StopCoroutine(coroutine);
         TournamentManager.Instance.TournamentDataChangedEvent -= DisplayLeaderBoard;
     }
 
     public void Close()
     {
         this.gameObject.SetActive(false);
+    }
+
+    IEnumerator Counter()
+    {
+        System.DateTime now = System.DateTime.Now;
+        System.DateTime endDate = TournamentManager.Instance.tournamentRule.endDate;
+
+        Debug.Log(endDate > now);
+        while (endDate > now)
+        {
+            yield return new WaitForSeconds(1);
+            now = System.DateTime.Now;
+            var difference = endDate - now;
+            counterTMP.text = $"{difference.Days}d {difference.Hours}h {difference.Minutes}m {difference.Seconds}s";
+        }
+        yield return null;
     }
 
     public void DisplayLeaderBoard()

@@ -22,6 +22,7 @@ public class TournamentManager : Manager<TournamentManager>
     public string tournamentName;
     public Dictionary<int, string> leaderBoardData;
 
+    Firebase.Auth.FirebaseUser user;
 
     public string cachePath;
 
@@ -38,10 +39,12 @@ public class TournamentManager : Manager<TournamentManager>
     {
         tournamentName = "";
         tournamentRule = null;
+        userTournamentData = null;
     }
+
     public bool isTournamentAvaiable()
     {
-        if(tournamentRule == null )
+        if (tournamentRule == null)
         {
             return false;
         }
@@ -50,6 +53,7 @@ public class TournamentManager : Manager<TournamentManager>
             return tournamentRule.status != TournamentStatus.STOPPED;
         }
     }
+
     private void Start()
 
     {
@@ -62,6 +66,8 @@ public class TournamentManager : Manager<TournamentManager>
                 ProjectId = "tras-9c6ce",
             }
         );
+
+        auth = FirebaseAuth.GetAuth(app);
 
         KinetManager.Instance.InitializeAuth(app);
         reference = FirebaseDatabase.GetInstance(app).RootReference;
@@ -81,15 +87,39 @@ public class TournamentManager : Manager<TournamentManager>
         Debug.Log(snapshot.Value);
         if (snapshot.Value != null)
         {
+            if (userTournamentData == null)
+                GetUserProfile();
             tournamentName = snapshot.Value.ToString();
             reference.Child(tournamentName).Child("rules").ValueChanged += HandleTournamentRuleChanged;
             reference.Child(tournamentName).Child("players").OrderByChild("score").LimitToLast(10).ValueChanged += HandlePlayerValueChanged;
         }
     }
 
+
+    public void Login(string token)
+    {
+        auth.SignInWithCustomTokenAsync(token).ContinueWith(task =>
+        {
+            if (task.IsCanceled)
+            {
+                Debug.LogError("SignInWithCustomTokenAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("SignInWithCustomTokenAsync encountered an error: " + task.Exception);
+                return;
+            }
+            user = task.Result;
+            GetUserProfile();
+        });
+    }
+
     public async void GetUserProfile()
     {
-        var tournament = await reference.Child(tournamentName).Child("players").Child(KinetManager.Instance.token).GetValueAsync();
+        if (string.IsNullOrEmpty(tournamentName)) return;
+
+        var tournament = await reference.Child(tournamentName).Child("players").Child(user.UserId).GetValueAsync();
         if (tournament.Exists)
         {
             userTournamentData = JsonUtility.FromJson<TournamentData>(tournament.GetRawJsonValue());
@@ -97,7 +127,7 @@ public class TournamentManager : Manager<TournamentManager>
         else
         {
             ScoreManager.ResetScore();
-            userTournamentData = new TournamentData(KinetManager.Instance.PhoneNumber, new Score("0", System.DateTime.Now.ToString(), 0), KinetManager.Instance.token);
+            userTournamentData = new TournamentData(KinetManager.Instance.PhoneNumber, new Score("0", System.DateTime.Now.ToString(), 0), user.UserId);
             StoreScore("0", 0);
         }
     }
@@ -141,7 +171,7 @@ public class TournamentManager : Manager<TournamentManager>
     {
         if (tournamentRule.status == TournamentStatus.STOPPED) return;
 
-        string kinteID = KinetManager.Instance.token;
+        string kinteID = user.UserId;
         string phone = KinetManager.Instance.PhoneNumber;
 
         if (int.Parse(score) < int.Parse(userTournamentData.score)) return;

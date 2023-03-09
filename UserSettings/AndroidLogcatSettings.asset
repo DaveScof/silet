@@ -3,35 +3,11 @@
     "m_SelectedPackage": {
         "deviceId": "R9DN6016H9J",
         "name": "com.QeneGames.MathGame",
-        "processId": 29400,
+        "processId": 15144,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "R9DN6016H9J",
-            "name": "com.QeneGames.MathGame",
-            "processId": 11003,
-            "exited": true
-        },
-        {
-            "deviceId": "R9DN6016H9J",
-            "name": "system:ui",
-            "processId": 21171,
-            "exited": true
-        },
-        {
-            "deviceId": "R9DN6016H9J",
-            "name": "com.QeneGames.MathGame",
-            "processId": 18522,
-            "exited": true
-        },
-        {
-            "deviceId": "R9DN6016H9J",
-            "name": "com.QeneGames.MathGame",
-            "processId": 3860,
-            "exited": true
-        },
         {
             "deviceId": "R9DN6016H9J",
             "name": "com.sec.android.app.launcher",
@@ -41,7 +17,31 @@
         {
             "deviceId": "R9DN6016H9J",
             "name": "com.QeneGames.MathGame",
-            "processId": 29400,
+            "processId": 15873,
+            "exited": true
+        },
+        {
+            "deviceId": "R9DN6016H9J",
+            "name": "com.google.android.gm",
+            "processId": 7206,
+            "exited": true
+        },
+        {
+            "deviceId": "R9DN6016H9J",
+            "name": "com.QeneGames.MathGame",
+            "processId": 19458,
+            "exited": true
+        },
+        {
+            "deviceId": "R9DN6016H9J",
+            "name": "com.QeneGames.MathGame",
+            "processId": 22209,
+            "exited": true
+        },
+        {
+            "deviceId": "R9DN6016H9J",
+            "name": "com.QeneGames.MathGame",
+            "processId": 15144,
             "exited": false
         }
     ],
