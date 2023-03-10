@@ -33,7 +33,7 @@ namespace AppAdvisory.MathGame
             if (lastScore > best)
             {
                 PlayerPrefs.SetInt("BEST_SCORE", lastScore);
-                TournamentManager.Instance.StoreScore(lastScore.ToString(), level);
+                TournamentManager.Instance.StoreScore(lastScore, level);
             }
 
             PlayerPrefs.Save();

@@ -20,7 +20,7 @@ public class TournamentManager : Manager<TournamentManager>
     public TournamentRule tournamentRule;
     public TournamentData userTournamentData;
     public string tournamentName;
-    public Dictionary<int, string> leaderBoardData;
+    public List<int> leaderBoardData;
 
     Firebase.Auth.FirebaseUser user;
 
@@ -57,7 +57,7 @@ public class TournamentManager : Manager<TournamentManager>
     private void Start()
 
     {
-        leaderBoardData = new Dictionary<int, string>();
+        leaderBoardData = new List<int>();
         app = FirebaseApp.Create(
             options: new Firebase.AppOptions
             {
@@ -77,6 +77,9 @@ public class TournamentManager : Manager<TournamentManager>
 
     public void ActiveTournament(object sender, ValueChangedEventArgs args)
     {
+        tournamentName = null;
+        tournamentRule = null;
+
         if (args.DatabaseError != null)
         {
             Debug.LogError("Firebase Realtime Database error: " + args.DatabaseError);
@@ -90,6 +93,7 @@ public class TournamentManager : Manager<TournamentManager>
             if (userTournamentData == null)
                 GetUserProfile();
             tournamentName = snapshot.Value.ToString();
+
             reference.Child(tournamentName).Child("rules").ValueChanged += HandleTournamentRuleChanged;
             reference.Child(tournamentName).Child("players").OrderByChild("score").LimitToLast(10).ValueChanged += HandlePlayerValueChanged;
         }
@@ -127,8 +131,8 @@ public class TournamentManager : Manager<TournamentManager>
         else
         {
             ScoreManager.ResetScore();
-            userTournamentData = new TournamentData(KinetManager.Instance.PhoneNumber, new Score("0", System.DateTime.Now.ToString(), 0), user.UserId);
-            StoreScore("0", 0);
+            userTournamentData = new TournamentData(KinetManager.Instance.PhoneNumber, new Score(0, System.DateTime.Now.ToString(), 0), user.UserId);
+            StoreScore(0, 0);
         }
     }
 
@@ -146,8 +150,10 @@ public class TournamentManager : Manager<TournamentManager>
         foreach (var (i, index) in dict.Select((v, i) => (v, i)))
         {
             var dict2 = i.Value as Dictionary<string, object>;
-            leaderBoardData.Add(index, dict2["score"].ToString());
+            leaderBoardData.Add(int.Parse(dict2["score"].ToString()));
         }
+        leaderBoardData.Sort();
+        leaderBoardData.Reverse();
         if (TournamentDataChangedEvent != null)
             TournamentDataChangedEvent.Invoke();
     }
@@ -167,14 +173,14 @@ public class TournamentManager : Manager<TournamentManager>
         tournamentRule = new TournamentRule(date, snapshot.Child("status").Value.ToString());
     }
 
-    public void StoreScore(string score, int level)
+    public void StoreScore(int score, int level)
     {
         if (tournamentRule.status == TournamentStatus.STOPPED) return;
 
         string kinteID = user.UserId;
         string phone = KinetManager.Instance.PhoneNumber;
 
-        if (int.Parse(score) < int.Parse(userTournamentData.score)) return;
+        if (score < userTournamentData.score) return;
 
         Score scoreJson = new Score(score, System.DateTime.Now.ToString(), level);
         TournamentData tournamentData = new TournamentData(phone, scoreJson, kinteID);
@@ -187,7 +193,7 @@ public class TournamentManager : Manager<TournamentManager>
                 return;
             }
         });
-        reference.Child(tournamentName).Child("players").Child(kinteID).Child("scores").Child(score).SetRawJsonValueAsync(JsonUtility.ToJson(scoreJson)).ContinueWith(task =>
+        reference.Child(tournamentName).Child("players").Child(kinteID).Child("scores").Child(score.ToString()).SetRawJsonValueAsync(JsonUtility.ToJson(scoreJson)).ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
@@ -217,6 +223,8 @@ public class TournamentManager : Manager<TournamentManager>
     //         Debug.LogError("Failed to cache image: " + www.error);
     //     }
     // }
+
+
 }
 
 [JsonConverter(typeof(StringEnumConverter))]
@@ -243,10 +251,10 @@ public class TournamentRule
 
 public class PlayersData
 {
-    public string score;
+    public int score;
     public int level;
 
-    public PlayersData(string score, int level)
+    public PlayersData(int score, int level)
     {
         this.score = score;
         this.level = level;
@@ -257,7 +265,7 @@ public class PlayersData
 public class TournamentData
 {
     public string phone;
-    public string score;
+    public int score;
     public string date;
     public int level;
     public string kinteID;
@@ -276,11 +284,11 @@ public class TournamentData
 [System.Serializable]
 public class Score
 {
-    public string score;
+    public int score;
     public string date;
     public int level;
 
-    public Score(string score, string date, int level)
+    public Score(int score, string date, int level)
     {
         this.score = score;
         this.date = date;

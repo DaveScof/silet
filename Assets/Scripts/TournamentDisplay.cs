@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.IO;
+using System.Linq;
 
 public class TournamentDisplay : MonoBehaviour
 {
@@ -74,11 +75,13 @@ public class TournamentDisplay : MonoBehaviour
 
     public void DisplayLeaderBoard()
     {
-        Dictionary<int, string> leaderboard = TournamentManager.Instance.leaderBoardData;
+        List<int> leaderboard = TournamentManager.Instance.leaderBoardData;
 
-        foreach (var item in leaderboard)
+        foreach (var (i, index) in leaderboard.Select((v, i) => (v, i)))
         {
-            leaderBoards[item.Key].text = $"{item.Key + 1}    {item.Value}";
+            if (index < leaderBoards.Length)
+                leaderBoards[index].text = $"{index + 1}    {i}";
+
         }
     }
 
