@@ -18,6 +18,7 @@ using System.Collections;
 using System.Collections.Generic;
 using MenuBarouch;
 using Scaffold;
+using TMPro;
 
 #if APPADVISORY_LEADERBOARD
 using AppAdvisory.social;
@@ -75,7 +76,7 @@ namespace AppAdvisory.MathGame
 
         public Slider slider; //the slider in the top of the game screen
 
-        public Text levelText; //the text to see the level during the game
+        public TMP_Text levelText; //the text to see the level during the game
 
         private Vector2 pivotPoint;
 

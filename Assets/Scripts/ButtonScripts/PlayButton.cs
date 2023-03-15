@@ -15,12 +15,17 @@ using System.Collections;
 
 namespace AppAdvisory.MathGame
 {
-	public class PlayButton : ButtonHelper 
+	public class PlayButton : ButtonHelper
 	{
 		override public void OnClicked()
 		{
-			print ("OnClicked : " + gameObject.name);
-			if (KinetManager.Instance.CheckIsPlayable())
+			
+#if UNITY_EDITOR
+			menuManager.GoToGame();
+			RemoveListener();
+			return;
+#endif
+			if (KinetManager.Instance.CheckIsPlayable() )
 			{
 				menuManager.GoToGame();
 				RemoveListener();
