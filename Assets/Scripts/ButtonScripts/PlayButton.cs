@@ -20,8 +20,11 @@ namespace AppAdvisory.MathGame
 		override public void OnClicked()
 		{
 			print ("OnClicked : " + gameObject.name);
-			menuManager.GoToGame();
-			RemoveListener();
+			if (KinetManager.Instance.CheckIsPlayable())
+			{
+				menuManager.GoToGame();
+				RemoveListener();
+			}
 		}
 	}
 }

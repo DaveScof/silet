@@ -1,9 +1,4 @@
-using Core.Net;
 using Firebase.Auth;
-using Firebase;
-using Scaffold;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KinetManager : Manager<KinetManager>, KinetSubscription.ServiceTokenRequester
@@ -30,21 +25,32 @@ public class KinetManager : Manager<KinetManager>, KinetSubscription.ServiceToke
 
     public bool CheckIsPlayable()
     {
-
         return kinetSubscription.CheckIsPlayable();
     }
 
     void KinetSubscription.ServiceTokenRequester.OnServiceTokenFetched(string token)
     {
         this.token = token;
-        Debug.Log("toke <=-*-=> " + this.token);
         TournamentManager.Instance.Login(token);
     }
 
+    public void AddListenerForSubscription(System.Action listener)
+    {
+        if (kinetSubscription.IsLoggedIn)
+        {
+            kinetSubscription.onFetchSubscriptionStatus += listener;
+        }
+        else
+        {
+            listener();
+        }
+    }
 
     public void LogOut()
     {
+
         kinetSubscription.Logout();
+        kinetSubscription.CheckIsPlayable();
     }
 
 

@@ -48,10 +48,6 @@ namespace MenuBarouch
 
         public override void AfterInitialized()
         {
-            if (!KinetManager.Instance.CheckIsPlayable())
-            {
-                Debug.Log("not showing");
-            }
 
             MENU.SetActive(true);
             GAME.SetActive(false);
@@ -62,7 +58,6 @@ namespace MenuBarouch
         public void Logout()
         {
             KinetManager.Instance.LogOut();
-            bool logout = KinetManager.Instance.CheckIsPlayable();
         }
 
         public void OpenTournamentLeaderBoard()
