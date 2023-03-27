@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Scaffold;
 using Firebase.Database;
 using Firebase.Auth;
 using Firebase;
@@ -9,8 +7,6 @@ using AppAdvisory.MathGame;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Linq;
-using UnityEngine.Networking;
-using System.IO;
 
 public class TournamentManager : Manager<TournamentManager>
 {
@@ -24,7 +20,7 @@ public class TournamentManager : Manager<TournamentManager>
 
     Firebase.Auth.FirebaseUser user;
 
-    public string cachePath;
+    public string tournamentImage;
 
     #region events
 
@@ -42,7 +38,7 @@ public class TournamentManager : Manager<TournamentManager>
         userTournamentData = null;
     }
 
-    public bool isTournamentAvaiable()
+    public bool isTournamentAvailable()
     {
         if (tournamentRule == null)
         {
@@ -68,12 +64,12 @@ public class TournamentManager : Manager<TournamentManager>
         );
 
         auth = FirebaseAuth.GetAuth(app);
-
-        KinetManager.Instance.InitializeAuth(app);
         reference = FirebaseDatabase.GetInstance(app).RootReference;
 
         reference.Child("tournament-active").ValueChanged += ActiveTournament;
     }
+
+
 
     public void ActiveTournament(object sender, ValueChangedEventArgs args)
     {
@@ -123,6 +119,7 @@ public class TournamentManager : Manager<TournamentManager>
     {
         if (string.IsNullOrEmpty(tournamentName)) return;
 
+        string phone = KinetManager.Instance.kinetSubscription.User.Phone;
         var tournament = await reference.Child(tournamentName).Child("players").Child(user.UserId).GetValueAsync();
         if (tournament.Exists)
         {
@@ -131,7 +128,7 @@ public class TournamentManager : Manager<TournamentManager>
         else
         {
             ScoreManager.ResetScore();
-            userTournamentData = new TournamentData(KinetManager.Instance.PhoneNumber, new Score(0, System.DateTime.Now.ToString(), 0), user.UserId);
+            userTournamentData = new TournamentData(phone, new Score(0, System.DateTime.Now.ToString(), 0), user.UserId);
             StoreScore(0, 0);
         }
     }
@@ -169,7 +166,7 @@ public class TournamentManager : Manager<TournamentManager>
         DataSnapshot snapshot = args.Snapshot;
         string date = snapshot.Child("endDate").Value.ToString();
         string imagePath = snapshot.Child("imagePath").Value.ToString();
-        cachePath = imagePath;
+        tournamentImage = imagePath;
         tournamentRule = new TournamentRule(date, snapshot.Child("status").Value.ToString());
     }
 
@@ -178,8 +175,8 @@ public class TournamentManager : Manager<TournamentManager>
         if (tournamentRule.status == TournamentStatus.STOPPED) return;
 
         string kinteID = user.UserId;
-        string phone = KinetManager.Instance.PhoneNumber;
-
+        string phone = KinetManager.Instance.kinetSubscription.User.Phone;
+        Debug.Log(phone);
         if (score < userTournamentData.score) return;
 
         Score scoreJson = new Score(score, System.DateTime.Now.ToString(), level);
@@ -202,28 +199,6 @@ public class TournamentManager : Manager<TournamentManager>
             }
         });
     }
-
-    // IEnumerator CacheImage(string imageUrl)
-    // {
-    //     UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageUrl);
-    //     yield return www.SendWebRequest();
-
-    //     if (www.result == UnityWebRequest.Result.Success)
-    //     {
-    //         Texture2D texture = DownloadHandlerTexture.GetContent(www);
-    //         byte[] bytes = texture.EncodeToPNG();
-
-    //         File.WriteAllBytes(cachePath, bytes);
-    //         TournamentImageEvent?.Invoke();
-
-    //         Debug.Log("Image cached: " + cachePath);
-    //     }
-    //     else
-    //     {
-    //         Debug.LogError("Failed to cache image: " + www.error);
-    //     }
-    // }
-
 
 }
 

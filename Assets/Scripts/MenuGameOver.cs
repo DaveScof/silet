@@ -13,14 +13,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 namespace AppAdvisory.MathGame
 {
 	public class MenuGameOver : MonoBehaviour 
 	{
-		public Text level;
-		public Text score;
-		public Text bestScore;
+		public TMP_Text level;
+		public TMP_Text score;
+		public TMP_Text bestScore;
 
 		public GameObject newBestScoreLabel;
 

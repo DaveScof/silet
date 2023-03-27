@@ -18,6 +18,7 @@ using System.Collections;
 using System.Collections.Generic;
 using MenuBarouch;
 using Scaffold;
+
 using TMPro;
 
 #if APPADVISORY_LEADERBOARD
@@ -431,11 +432,23 @@ namespace AppAdvisory.MathGame
 
         }
 
+        void Shuffle<T>(T[] array)
+        {
+            System.Random rand = new System.Random();
+            for (int i = array.Length - 1; i > 0; i--)
+            {
+                int j = rand.Next(i + 1);
+                T temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+
         //set the question text
         private void SetText(int n1, int n2, int oper, int result)
         {
             int TYPE_QUESTION = UnityEngine.Random.Range(0, 4);
-
+            Shuffle(reponses);
             if (TYPE_QUESTION == 0)
             {
                 questionNumber1.text = "?";
@@ -595,7 +608,7 @@ namespace AppAdvisory.MathGame
             }
             else
             {
-                slider.value -= timeTotalGame / 5;
+                slider.value -= timeTotalGame / 3;
 
                 PlaySoundFalse();
 

@@ -4,11 +4,13 @@ using UnityEngine;
 using Scaffold;
 using UnityEngine.UI;
 using AppAdvisory.MathGame;
+using TMPro;
 
 public class SettingManager : Manager<SettingManager>
 {
     public Slider musicSlider;
     public Slider soundEffectSlider;
+    public TMP_Dropdown languageDropDown;
 
     [Space()]
 
@@ -21,6 +23,7 @@ public class SettingManager : Manager<SettingManager>
     private void Start()
     {
         english = Tongues.LanguageControl.ActiveLanguage;
+        
     }
 
     public void MusicSlider()
@@ -47,5 +50,19 @@ public class SettingManager : Manager<SettingManager>
     {
         MenuBarouch.MenuManager.Instance.Logout();
     }
+
+    public void OnLanguageChanged()
+    {
+        int val = languageDropDown.value;
+        if (val == 0)
+        {
+            ChangeToEnglish();
+        }
+        else
+        {
+            ChangeToAmharic();
+        }
+    }
+    
 
 }

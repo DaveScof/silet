@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.IO;
 using System.Linq;
 
 public class TournamentDisplay : MonoBehaviour
 {
-    public TMP_Text[] leaderBoards;
+    public TMP_Text[] leaderBoardsTMPTexts;
     public Image image;
     public TMP_Text counterTMP;
 
     [Space()]
-    public string cachePath;
+    public string tournamentImage;
     private IEnumerator coroutine;
 
     private void Start()
@@ -37,11 +36,11 @@ public class TournamentDisplay : MonoBehaviour
 
     public void LoadImage()
     {
-        string newCachePath = TournamentManager.Instance.cachePath;
-        if (!newCachePath.Equals(cachePath))
+        string newCachePath = TournamentManager.Instance.tournamentImage;
+        if (!newCachePath.Equals(tournamentImage))
         {
-            cachePath = newCachePath;
-            Davinci.get().setCached(true).setEnableLog(true).load(cachePath).setFadeTime(2).into(image).start();
+            tournamentImage = newCachePath;
+            Davinci.get().setCached(true).setEnableLog(true).load(tournamentImage).setFadeTime(2).into(image).start();
         }
     }
 
@@ -79,8 +78,8 @@ public class TournamentDisplay : MonoBehaviour
 
         foreach (var (i, index) in leaderboard.Select((v, i) => (v, i)))
         {
-            if (index < leaderBoards.Length)
-                leaderBoards[index].text = $"{index + 1}    {i}";
+            if (index < leaderBoardsTMPTexts.Length)
+                leaderBoardsTMPTexts[index].text = $"{index + 1}    {i}";
 
         }
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LeaderBoardDisplay : MonoBehaviour
@@ -11,7 +9,7 @@ public class LeaderBoardDisplay : MonoBehaviour
     public void OpenTournament()
     {
         tournamentPanel.SetActive(true);
-        if (TournamentManager.Instance.isTournamentAvaiable())
+        if (TournamentManager.Instance.isTournamentAvailable())
         {
             tournamentLeaderBoard.SetActive(true);
         }

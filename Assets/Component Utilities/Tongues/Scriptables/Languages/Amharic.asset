@@ -15,33 +15,35 @@ MonoBehaviour:
   languageName: Amharic
   languageCode: am
   translations:
-  - phraseId: ABEja5Y653
-    text: "\u12F0\u1228\u1303"
-  - phraseId: 6Sy9YvNE47
+  - phraseId: ioL37c05QF
+    text: 
+  - phraseId: M02OIffX69
+    text: "\u12F0\u1228\u1303:"
+  - phraseId: MZ952YqmQ2
     text: "\u12A0\u12F2\u1235 \u121D\u122D\u1325!!"
-  - phraseId: keVnow5k3p
-    text: "\u1290\u1325\u1265"
-  - phraseId: h8riigLJoa
-    text: "\u121D\u122D\u1325"
-  - phraseId: 9ljUNrljwg
+  - phraseId: 4z5d8PuU32
+    text: "\u1290\u1325\u1265:"
+  - phraseId: eiWxIcJVsZ
+    text: "\u121D\u122D\u1325:"
+  - phraseId: l0r05w2FUt
     text: "\u1218\u122A \u1230\u120C\u12F3"
-  - phraseId: nS8aCP4V24
-    text: "\u12ED\u132B\u12C8\u1271 \u12ED\u1238\u1208\u1219"
-  - phraseId: zmjVA3JU26
+  - phraseId: 7l10uo4CEV
+    text: "00-d-00\u1230-00\u121C"
+  - phraseId: 80i325lYy7
+    text: "\u121D\u1295\u121D \u12CD\u12F5\u12F5\u122D \u12A0\u1201\u1295 \u12E8\u1208\u121D"
+  - phraseId: 5dhJrDq56q
     text: "\u124B\u1295\u124B"
-  - phraseId: mIY51ps5kS
-    text: "\u12A5\u1295\u130D\u120A\u12DD\u129B"
-  - phraseId: 6cA6nx1Z4H
-    text: "\u12A0\u121B\u122D\u129B"
-  - phraseId: X1aa472Gfo
+  - phraseId: 42JDt3e56A
     text: "\u12ED\u12CD\u1321"
-  - phraseId: lgOpQH45u4
+  - phraseId: 0Y8d62W06e
+    text: "\u12A8 kinet \u130B\u122D \u1260\u1218\u1308\u1293\u1298\u1275 \u120B\u12ED..."
+  - phraseId: 1ymi4ol9AN
     text: "\u1270\u1218\u1208\u1235"
-  - phraseId: y451W5k3C3
+  - phraseId: cxAr9ZImg2
     text: "\u1293\u1219\u1293"
-  - phraseId: 87O7eU1NYg
+  - phraseId: ci3h00j7d8
     text: "\u12F0\u1205\u1293 \u12ED\u1218\u1235\u120B\u120D!"
-  - phraseId: kgT23cu9MC
+  - phraseId: TLyA1OJ375
     text: "\u1230\u120B\u121D \u120D\u12D1\u120D!"
   autoTranslateEngine: 0
   unityFontConversions: []

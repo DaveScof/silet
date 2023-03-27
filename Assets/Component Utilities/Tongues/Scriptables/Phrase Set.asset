@@ -15,194 +15,221 @@ MonoBehaviour:
   languageName: English
   languageCode: en
   phrases:
-  - id: ABEja5Y653
+  - id: ioL37c05QF
+    text: LEVEL 100
+    skipTranslation: 0
+    sceneIds:
+    - SCN_cN6t4GOczP
+    sceneName: MathGame
+    sceneIndependent: 1
+  - id: M02OIffX69
     text: 'Level:'
     skipTranslation: 0
     sceneIds:
     - SCN_cN6t4GOczP
     sceneName: MathGame
     sceneIndependent: 1
-  - id: 6Sy9YvNE47
+  - id: MZ952YqmQ2
     text: NEW BEST!!
     skipTranslation: 0
     sceneIds:
     - SCN_cN6t4GOczP
     sceneName: MathGame
     sceneIndependent: 1
-  - id: keVnow5k3p
+  - id: 4z5d8PuU32
     text: 'SCORE:'
     skipTranslation: 0
     sceneIds:
     - SCN_cN6t4GOczP
     sceneName: MathGame
     sceneIndependent: 1
-  - id: h8riigLJoa
+  - id: eiWxIcJVsZ
     text: 'Best:'
     skipTranslation: 0
     sceneIds:
     - SCN_cN6t4GOczP
     sceneName: MathGame
     sceneIndependent: 1
-  - id: 9ljUNrljwg
+  - id: l0r05w2FUt
     text: LeaderBoard
     skipTranslation: 0
     sceneIds:
     - SCN_cN6t4GOczP
     sceneName: MathGame
     sceneIndependent: 1
-  - id: nS8aCP4V24
-    text: Play hard, win big  game on!!
+  - id: 7l10uo4CEV
+    text: 00-d-00h-00m
     skipTranslation: 0
     sceneIds:
     - SCN_cN6t4GOczP
     sceneName: MathGame
     sceneIndependent: 1
-  - id: zmjVA3JU26
-    text: Language
+  - id: 80i325lYy7
+    text: No Tournament, Avaliable Now.
     skipTranslation: 0
     sceneIds:
     - SCN_cN6t4GOczP
     sceneName: MathGame
     sceneIndependent: 1
-  - id: mIY51ps5kS
+  - id: Yc9xWVokMg
     text: English
     skipTranslation: 0
     sceneIds:
     - SCN_cN6t4GOczP
     sceneName: MathGame
     sceneIndependent: 1
-  - id: 6cA6nx1Z4H
+  - id: 5dhJrDq56q
+    text: Language
+    skipTranslation: 0
+    sceneIds:
+    - SCN_cN6t4GOczP
+    sceneName: MathGame
+    sceneIndependent: 1
+  - id: o0dMH5F5yY
     text: Amharic
     skipTranslation: 0
     sceneIds:
     - SCN_cN6t4GOczP
     sceneName: MathGame
     sceneIndependent: 1
-  - id: X1aa472Gfo
+  - id: 42JDt3e56A
     text: Signout
     skipTranslation: 0
     sceneIds:
     - SCN_cN6t4GOczP
     sceneName: MathGame
     sceneIndependent: 1
-  - id: lgOpQH45u4
+  - id: 0Y8d62W06e
+    text: connecting to kinet...
+    skipTranslation: 0
+    sceneIds:
+    - SCN_cN6t4GOczP
+    sceneName: MathGame
+    sceneIndependent: 1
+  - id: 1ymi4ol9AN
     text: Back
     skipTranslation: 0
     sceneIds: []
     sceneName: 
     sceneIndependent: 1
-  - id: y451W5k3C3
+  - id: cxAr9ZImg2
     text: Sample
     skipTranslation: 0
     sceneIds: []
     sceneName: 
     sceneIndependent: 1
-  - id: 87O7eU1NYg
+  - id: ci3h00j7d8
     text: Seems to be ok!
     skipTranslation: 0
     sceneIds: []
     sceneName: 
     sceneIndependent: 1
-  - id: kgT23cu9MC
+  - id: TLyA1OJ375
     text: Hello World!
     skipTranslation: 0
     sceneIds: []
     sceneName: 
     sceneIndependent: 1
   sceneIndependentPhraseLinks:
-  - id: ABEja5Y653
+  - id: ioL37c05QF
+    paths:
+    - targetObject: {fileID: 0}
+      fieldPath: 
+    - targetObject: {fileID: 701760486519548414, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      fieldPath: 
+  - id: M02OIffX69
     paths:
     - targetObject: {fileID: 0}
       fieldPath: 
     - targetObject: {fileID: 3922395228080889557, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       fieldPath: 
-  - id: 6Sy9YvNE47
+  - id: MZ952YqmQ2
     paths:
     - targetObject: {fileID: 0}
       fieldPath: 
     - targetObject: {fileID: 6726278332476073344, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       fieldPath: 
-  - id: keVnow5k3p
+  - id: 4z5d8PuU32
     paths:
     - targetObject: {fileID: 0}
       fieldPath: 
     - targetObject: {fileID: 1587718718290847504, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       fieldPath: 
-  - id: h8riigLJoa
+  - id: eiWxIcJVsZ
     paths:
     - targetObject: {fileID: 0}
       fieldPath: 
     - targetObject: {fileID: 3444774143447603474, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       fieldPath: 
-  - id: 9ljUNrljwg
+  - id: l0r05w2FUt
     paths:
-    - targetObject: {fileID: 0}
-      fieldPath: 
-    - targetObject: {fileID: 0}
-      fieldPath: 
-    - targetObject: {fileID: 0}
-      fieldPath: 
-    - targetObject: {fileID: 0}
-      fieldPath: 
-    - targetObject: {fileID: 0}
-      fieldPath: 
     - targetObject: {fileID: 0}
       fieldPath: 
     - targetObject: {fileID: 7389484917224204833, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       fieldPath: 
-    - targetObject: {fileID: 4966226039756265740, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
-      fieldPath: 
-    - targetObject: {fileID: 7791747752317775469, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
-      fieldPath: 
-    - targetObject: {fileID: 7765178158584827132, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
-      fieldPath: 
-    - targetObject: {fileID: 4808740254769474960, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
-      fieldPath: 
-    - targetObject: {fileID: 3489850652999776536, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
-      fieldPath: 
-  - id: nS8aCP4V24
+  - id: 7l10uo4CEV
     paths:
     - targetObject: {fileID: 0}
       fieldPath: 
-    - targetObject: {fileID: 6416980942773815876, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+    - targetObject: {fileID: 8223692345544579189, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       fieldPath: 
-  - id: zmjVA3JU26
+  - id: 80i325lYy7
+    paths:
+    - targetObject: {fileID: 0}
+      fieldPath: 
+    - targetObject: {fileID: 4297782524577906547, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      fieldPath: 
+  - id: Yc9xWVokMg
+    paths:
+    - targetObject: {fileID: 0}
+      fieldPath: 
+    - targetObject: {fileID: 0}
+      fieldPath: 
+    - targetObject: {fileID: 0}
+      fieldPath: 
+    - targetObject: {fileID: 2495910530448189105, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      fieldPath: 
+    - targetObject: {fileID: 2253917089566986838, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      fieldPath: 
+    - targetObject: {fileID: 8967040737494374642, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      fieldPath: 
+  - id: 5dhJrDq56q
     paths:
     - targetObject: {fileID: 0}
       fieldPath: 
     - targetObject: {fileID: 2146537163087450776, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       fieldPath: 
-  - id: mIY51ps5kS
-    paths:
-    - targetObject: {fileID: 0}
-      fieldPath: 
-    - targetObject: {fileID: 8967040737494374642, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
-      fieldPath: 
-  - id: 6cA6nx1Z4H
+  - id: o0dMH5F5yY
     paths:
     - targetObject: {fileID: 0}
       fieldPath: 
     - targetObject: {fileID: 8480865670660731844, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       fieldPath: 
-  - id: X1aa472Gfo
+  - id: 42JDt3e56A
     paths:
     - targetObject: {fileID: 0}
       fieldPath: 
     - targetObject: {fileID: 9050646899975557189, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       fieldPath: 
-  - id: lgOpQH45u4
+  - id: 0Y8d62W06e
+    paths:
+    - targetObject: {fileID: 0}
+      fieldPath: 
+    - targetObject: {fileID: 8501577453292588257, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      fieldPath: 
+  - id: 1ymi4ol9AN
     paths:
     - targetObject: {fileID: 6653089638298657286, guid: 106b00525bdcce64c996267b7699ea9b, type: 3}
       fieldPath: 
-  - id: y451W5k3C3
+  - id: cxAr9ZImg2
     paths:
     - targetObject: {fileID: 11487728, guid: b06f0e6c1dfa4356ac918da1bb32c603, type: 3}
       fieldPath: 
-  - id: 87O7eU1NYg
+  - id: ci3h00j7d8
     paths:
     - targetObject: {fileID: 11400000, guid: a6e39ced0ea046bcb636c3f0b2e2a745, type: 3}
       fieldPath: 
-  - id: kgT23cu9MC
+  - id: TLyA1OJ375
     paths:
     - targetObject: {fileID: 11400000, guid: fdad9d952ae84cafb74c63f2e694d042, type: 3}
       fieldPath: 
