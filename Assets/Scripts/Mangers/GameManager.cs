@@ -41,7 +41,7 @@ namespace AppAdvisory.MathGame
         public AudioClip musicBackground;
         public AudioClip goodAnswerSound;
         public AudioClip falsedAnswerSound;
-
+        public Animator animator;
         public int timeTotalGame;
         public int timeMalus;
         public int timeBonus;
@@ -87,10 +87,24 @@ namespace AppAdvisory.MathGame
         int _number1 = 0;
         int _number2 = 0;
         int _operateur = 0;
+        int focusOut = 0;
+
 
         public delegate void _GameOver();
         public static event _GameOver OnGameOver;
 
+        private void OnApplicationFocus(bool focusStatus)
+        {
+            if (!focusStatus)
+            {
+                focusOut++;
+                Debug.Log(focusOut);
+                if(focusOut == 3)
+                {
+                    GameOver();
+                }
+            }
+        }
 
         //play fx when answer is wrong
         void PlaySoundFalse()
@@ -137,6 +151,7 @@ namespace AppAdvisory.MathGame
         {
             Application.targetFrameRate = 60;
             StartGame();
+            focusOut = 0;
         }
 
         void OnDisable()
@@ -170,6 +185,7 @@ namespace AppAdvisory.MathGame
         IEnumerator TimerStart()
         {
             slider.maxValue = timeTotalGame;
+            slider.minValue = 0;
             slider.value = timeTotalGame;
 
             while (true)
@@ -181,7 +197,7 @@ namespace AppAdvisory.MathGame
 
 
                 //if the slider == 0 ===> game over
-                if (slider.value == 0)
+                if (slider.value <= 0)
                 {
                     break;
                 }

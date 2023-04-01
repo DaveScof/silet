@@ -67,6 +67,50 @@
       },
       "oauth_client": [
         {
+          "client_id": "1045679823610-9pctm3t002qeggjl1a14svi048q52588.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.QeneGames.MathGame",
+            "certificate_hash": "f847c46a444b96c8891b9c25e3d98abecba965ce"
+          }
+        },
+        {
+          "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDkaO9Rq9XZSyGTxOCLOBE9Qa_MFKs6Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1045679823610-e0u9rff99c9k7ahn07278gtrg4a8qhud.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.qenegames.kukulu"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045679823610:android:acbe6c1616c302ed708743",
+        "android_client_info": {
+          "package_name": "com.QeneGames.Silte"
+        }
+      },
+      "oauth_client": [
+        {
           "client_id": "1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com",
           "client_type": 3
         }
