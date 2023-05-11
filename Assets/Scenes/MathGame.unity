@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -134,6 +134,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &140791916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140791917}
+  - component: {fileID: 140791918}
+  m_Layer: 0
+  m_Name: TournamentManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &140791917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140791916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 788219464}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &140791918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140791916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782759613e5f77e4ab97f349c9a91593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firebaseJsonConfig: "{\r\n  \"project_info\": {\r\n    \"project_number\": \"383446369866\",\r\n   
+    \"firebase_url\": \"https://silet-86a6b-default-rtdb.europe-west1.firebasedatabase.app\",\r\n   
+    \"project_id\": \"silet-86a6b\",\r\n    \"storage_bucket\": \"silet-86a6b.appspot.com\"\r\n 
+    },\r\n  \"client\": [\r\n    {\r\n      \"client_info\": {\r\n        \"mobilesdk_app_id\":
+    \"1:383446369866:android:47a4a800e0f4b6621208b3\",\r\n        \"android_client_info\":
+    {\r\n          \"package_name\": \"com.QeneGames.Silet\"\r\n        }\r\n     
+    },\r\n      \"oauth_client\": [\r\n        {\r\n          \"client_id\": \"383446369866-eaf91at2sccsn8naqk972vl80chlvrra.apps.googleusercontent.com\",\r\n         
+    \"client_type\": 3\r\n        }\r\n      ],\r\n      \"api_key\": [\r\n       
+    {\r\n          \"current_key\": \"AIzaSyDs1Qd9fAQR5f_3veiKfb6emTeIqNQpsEo\"\r\n       
+    }\r\n      ],\r\n      \"services\": {\r\n        \"appinvite_service\": {\r\n         
+    \"other_platform_oauth_client\": [\r\n            {\r\n              \"client_id\":
+    \"383446369866-eaf91at2sccsn8naqk972vl80chlvrra.apps.googleusercontent.com\",\r\n             
+    \"client_type\": 3\r\n            },\r\n            {\r\n              \"client_id\":
+    \"383446369866-edmn7kmojnf8ud2i6kpqaol4nsq35514.apps.googleusercontent.com\",\r\n             
+    \"client_type\": 2,\r\n              \"ios_info\": {\r\n                \"bundle_id\":
+    \"com.QeneGames.Silet\"\r\n              }\r\n            }\r\n          ]\r\n       
+    }\r\n      }\r\n    }\r\n  ],\r\n  \"configuration_version\": \"1\"\r\n}"
+  tournamentRule:
+    status: 0
+  userTournamentData:
+    phone: 
+    score: 0
+    date: 
+    level: 0
+    kinteID: 
+  tournamentName: 
+  leaderBoardData: 
+  tournamentImage: 
 --- !u!1001 &175600599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -432,6 +504,7 @@ Transform:
   - {fileID: 1252506124}
   - {fileID: 1887332108}
   - {fileID: 1059960087}
+  - {fileID: 140791917}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -749,6 +822,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782759613e5f77e4ab97f349c9a91593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firebaseJsonConfig: "{\r\n  \"project_info\": {\r\n    \"project_number\": \"383446369866\",\r\n   
+    \"firebase_url\": \"https://silet-86a6b-default-rtdb.europe-west1.firebasedatabase.app\",\r\n   
+    \"project_id\": \"silet-86a6b\",\r\n    \"storage_bucket\": \"silet-86a6b.appspot.com\"\r\n 
+    },\r\n  \"client\": [\r\n    {\r\n      \"client_info\": {\r\n        \"mobilesdk_app_id\":
+    \"1:383446369866:android:47a4a800e0f4b6621208b3\",\r\n        \"android_client_info\":
+    {\r\n          \"package_name\": \"com.QeneGames.Silet\"\r\n        }\r\n     
+    },\r\n      \"oauth_client\": [\r\n        {\r\n          \"client_id\": \"383446369866-eaf91at2sccsn8naqk972vl80chlvrra.apps.googleusercontent.com\",\r\n         
+    \"client_type\": 3\r\n        }\r\n      ],\r\n      \"api_key\": [\r\n       
+    {\r\n          \"current_key\": \"AIzaSyDs1Qd9fAQR5f_3veiKfb6emTeIqNQpsEo\"\r\n       
+    }\r\n      ],\r\n      \"services\": {\r\n        \"appinvite_service\": {\r\n         
+    \"other_platform_oauth_client\": [\r\n            {\r\n              \"client_id\":
+    \"383446369866-eaf91at2sccsn8naqk972vl80chlvrra.apps.googleusercontent.com\",\r\n             
+    \"client_type\": 3\r\n            },\r\n            {\r\n              \"client_id\":
+    \"383446369866-edmn7kmojnf8ud2i6kpqaol4nsq35514.apps.googleusercontent.com\",\r\n             
+    \"client_type\": 2,\r\n              \"ios_info\": {\r\n                \"bundle_id\":
+    \"com.QeneGames.Silet\"\r\n              }\r\n            }\r\n          ]\r\n       
+    }\r\n      }\r\n    }\r\n  ],\r\n  \"configuration_version\": \"1\"\r\n}"
   tournamentRule:
     status: 0
   userTournamentData:
@@ -787,6 +877,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 932697963}
+    - target: {fileID: 22425428, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -59.10913
+      objectReference: {fileID: 0}
     - target: {fileID: 22426804, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -62.5
@@ -1019,6 +1113,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -60
       objectReference: {fileID: 0}
+    - target: {fileID: 2153219088718494452, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -149.39354
+      objectReference: {fileID: 0}
     - target: {fileID: 2251422047834499334, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1212,6 +1310,186 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6231087065952280089, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687929996106886, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687929996106886, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687929996106886, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687929996106886, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930218291686, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930218291686, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930218291686, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930218291686, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930501815498, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930501815498, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930501815498, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930501815498, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930565906421, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930565906421, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930565906421, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930565906421, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930691266408, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.8999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687930989773579, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: firebaseJsonConfig
+      value: "{\r\n  \"project_info\": {\r\n    \"project_number\": \"1045679823610\",\r\n   
+        \"firebase_url\": \"https://kinet-516b8-default-rtdb.europe-west1.firebasedatabase.app\",\r\n   
+        \"project_id\": \"kinet-516b8\",\r\n    \"storage_bucket\": \"kinet-516b8.appspot.com\"\r\n 
+        },\r\n  \"client\": [\r\n    {\r\n      \"client_info\": {\r\n        \"mobilesdk_app_id\":
+        \"1:1045679823610:android:8d340fb41ca93a22708743\",\r\n        \"android_client_info\":
+        {\r\n          \"package_name\": \"com.QeneGames.Dama\"\r\n        }\r\n     
+        },\r\n      \"oauth_client\": [\r\n        {\r\n          \"client_id\":
+        \"1045679823610-fr9fd227n0oer2391e0l1eeqjcnaf9u2.apps.googleusercontent.com\",\r\n         
+        \"client_type\": 1,\r\n          \"android_info\": {\r\n            \"package_name\":
+        \"com.QeneGames.Dama\",\r\n            \"certificate_hash\": \"db38f2c0aad26d5d8b21b8a620f874b9520d0617\"\r\n         
+        }\r\n        },\r\n        {\r\n          \"client_id\": \"1045679823610-fvq3c5av5uhf7vc6umtmujqntc9tovaf.apps.googleusercontent.com\",\r\n         
+        \"client_type\": 1,\r\n          \"android_info\": {\r\n            \"package_name\":
+        \"com.QeneGames.Dama\",\r\n            \"certificate_hash\": \"9fae1939cc6d64b83b99c579cd17420fc29fb4b7\"\r\n         
+        }\r\n        },\r\n        {\r\n          \"client_id\": \"1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com\",\r\n         
+        \"client_type\": 3\r\n        }\r\n      ],\r\n      \"api_key\": [\r\n       
+        {\r\n          \"current_key\": \"AIzaSyCDkaO9Rq9XZSyGTxOCLOBE9Qa_MFKs6Wc\"\r\n       
+        }\r\n      ],\r\n      \"services\": {\r\n        \"appinvite_service\":
+        {\r\n          \"other_platform_oauth_client\": [\r\n            {\r\n             
+        \"client_id\": \"1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com\",\r\n             
+        \"client_type\": 3\r\n            },\r\n            {\r\n              \"client_id\":
+        \"1045679823610-cq7d8bde8fka4jglhrcehf3b7ourc1o7.apps.googleusercontent.com\",\r\n             
+        \"client_type\": 2,\r\n              \"ios_info\": {\r\n                \"bundle_id\":
+        \"com.QeneGames.Silet\"\r\n              }\r\n            }\r\n         
+        ]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"client_info\": {\r\n       
+        \"mobilesdk_app_id\": \"1:1045679823610:android:5194a2b4f066f4d9708743\",\r\n       
+        \"android_client_info\": {\r\n          \"package_name\": \"com.QeneGames.Silet\"\r\n       
+        }\r\n      },\r\n      \"oauth_client\": [\r\n        {\r\n          \"client_id\":
+        \"1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com\",\r\n         
+        \"client_type\": 3\r\n        }\r\n      ],\r\n      \"api_key\": [\r\n       
+        {\r\n          \"current_key\": \"AIzaSyCDkaO9Rq9XZSyGTxOCLOBE9Qa_MFKs6Wc\"\r\n       
+        }\r\n      ],\r\n      \"services\": {\r\n        \"appinvite_service\":
+        {\r\n          \"other_platform_oauth_client\": [\r\n            {\r\n             
+        \"client_id\": \"1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com\",\r\n             
+        \"client_type\": 3\r\n            },\r\n            {\r\n              \"client_id\":
+        \"1045679823610-cq7d8bde8fka4jglhrcehf3b7ourc1o7.apps.googleusercontent.com\",\r\n             
+        \"client_type\": 2,\r\n              \"ios_info\": {\r\n                \"bundle_id\":
+        \"com.QeneGames.Silet\"\r\n              }\r\n            }\r\n         
+        ]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"client_info\": {\r\n       
+        \"mobilesdk_app_id\": \"1:1045679823610:android:35e930d6e7d40208708743\",\r\n       
+        \"android_client_info\": {\r\n          \"package_name\": \"com.kinet.geo_guess\"\r\n       
+        }\r\n      },\r\n      \"oauth_client\": [\r\n        {\r\n          \"client_id\":
+        \"1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com\",\r\n         
+        \"client_type\": 3\r\n        }\r\n      ],\r\n      \"api_key\": [\r\n       
+        {\r\n          \"current_key\": \"AIzaSyCDkaO9Rq9XZSyGTxOCLOBE9Qa_MFKs6Wc\"\r\n       
+        }\r\n      ],\r\n      \"services\": {\r\n        \"appinvite_service\":
+        {\r\n          \"other_platform_oauth_client\": [\r\n            {\r\n             
+        \"client_id\": \"1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com\",\r\n             
+        \"client_type\": 3\r\n            },\r\n            {\r\n              \"client_id\":
+        \"1045679823610-cq7d8bde8fka4jglhrcehf3b7ourc1o7.apps.googleusercontent.com\",\r\n             
+        \"client_type\": 2,\r\n              \"ios_info\": {\r\n                \"bundle_id\":
+        \"com.QeneGames.Silet\"\r\n              }\r\n            }\r\n         
+        ]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"client_info\": {\r\n       
+        \"mobilesdk_app_id\": \"1:1045679823610:android:f9483f2d509ce53d708743\",\r\n       
+        \"android_client_info\": {\r\n          \"package_name\": \"com.kinetstore.kukulu\"\r\n       
+        }\r\n      },\r\n      \"oauth_client\": [\r\n        {\r\n          \"client_id\":
+        \"1045679823610-4t8phakggr3i777krb9e6jug5imsbgkl.apps.googleusercontent.com\",\r\n         
+        \"client_type\": 1,\r\n          \"android_info\": {\r\n            \"package_name\":
+        \"com.kinetstore.kukulu\",\r\n            \"certificate_hash\": \"fbab4764f5f0102e213e2c9ee3ab3a95e50fe182\"\r\n         
+        }\r\n        },\r\n        {\r\n          \"client_id\": \"1045679823610-nvnvths6oqa94e6rkgjeq7sbh3b2s8mn.apps.googleusercontent.com\",\r\n         
+        \"client_type\": 1,\r\n          \"android_info\": {\r\n            \"package_name\":
+        \"com.kinetstore.kukulu\",\r\n            \"certificate_hash\": \"03ff11b6ad97d1011e8e1c387fbcb41534aa6bb1\"\r\n         
+        }\r\n        },\r\n        {\r\n          \"client_id\": \"1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com\",\r\n         
+        \"client_type\": 3\r\n        }\r\n      ],\r\n      \"api_key\": [\r\n       
+        {\r\n          \"current_key\": \"AIzaSyCDkaO9Rq9XZSyGTxOCLOBE9Qa_MFKs6Wc\"\r\n       
+        }\r\n      ],\r\n      \"services\": {\r\n        \"appinvite_service\":
+        {\r\n          \"other_platform_oauth_client\": [\r\n            {\r\n             
+        \"client_id\": \"1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com\",\r\n             
+        \"client_type\": 3\r\n            },\r\n            {\r\n              \"client_id\":
+        \"1045679823610-cq7d8bde8fka4jglhrcehf3b7ourc1o7.apps.googleusercontent.com\",\r\n             
+        \"client_type\": 2,\r\n              \"ios_info\": {\r\n                \"bundle_id\":
+        \"com.QeneGames.Silet\"\r\n              }\r\n            }\r\n         
+        ]\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"client_info\": {\r\n       
+        \"mobilesdk_app_id\": \"1:1045679823610:android:d5333a597d0a47cd708743\",\r\n       
+        \"android_client_info\": {\r\n          \"package_name\": \"com.qene.tras\"\r\n       
+        }\r\n      },\r\n      \"oauth_client\": [\r\n        {\r\n          \"client_id\":
+        \"1045679823610-6jtqar48qeijqouo059onojr6vpc7bn6.apps.googleusercontent.com\",\r\n         
+        \"client_type\": 1,\r\n          \"android_info\": {\r\n            \"package_name\":
+        \"com.qene.tras\",\r\n            \"certificate_hash\": \"f98c8d79b931fd7d8c4e822d7f3ae710fd467adb\"\r\n         
+        }\r\n        },\r\n        {\r\n          \"client_id\": \"1045679823610-9s69vlvt7r5gu09861ta72u81e4ldhu3.apps.googleusercontent.com\",\r\n         
+        \"client_type\": 1,\r\n          \"android_info\": {\r\n            \"package_name\":
+        \"com.qene.tras\",\r\n            \"certificate_hash\": \"67b76bc9533a0cf51379cabad64053433da889c3\"\r\n         
+        }\r\n        },\r\n        {\r\n          \"client_id\": \"1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com\",\r\n         
+        \"client_type\": 3\r\n        }\r\n      ],\r\n      \"api_key\": [\r\n       
+        {\r\n          \"current_key\": \"AIzaSyCDkaO9Rq9XZSyGTxOCLOBE9Qa_MFKs6Wc\"\r\n       
+        }\r\n      ],\r\n      \"services\": {\r\n        \"appinvite_service\":
+        {\r\n          \"other_platform_oauth_client\": [\r\n            {\r\n             
+        \"client_id\": \"1045679823610-qvhe7hcqslffqkuliem06bfrced4v9or.apps.googleusercontent.com\",\r\n             
+        \"client_type\": 3\r\n            },\r\n            {\r\n              \"client_id\":
+        \"1045679823610-cq7d8bde8fka4jglhrcehf3b7ourc1o7.apps.googleusercontent.com\",\r\n             
+        \"client_type\": 2,\r\n              \"ios_info\": {\r\n                \"bundle_id\":
+        \"com.QeneGames.Silet\"\r\n              }\r\n            }\r\n         
+        ]\r\n        }\r\n      }\r\n    }\r\n  ],\r\n  \"configuration_version\":
+        \"1\"\r\n}"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687931315905165, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687931315905165, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687931315905165, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800687931315905165, guid: 078dbafbc14044a29be609e9b75c7b1f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}

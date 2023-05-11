@@ -31,7 +31,7 @@ public class KinetManager : Manager<KinetManager>, KinetSubscription.ServiceToke
     void KinetSubscription.ServiceTokenRequester.OnServiceTokenFetched(string token)
     {
         this.token = token;
-        TournamentManager.Instance.Login(token);
+        //TournamentManager.Instance.Login(token);
     }
 
     public void AddListenerForSubscription(System.Action listener)

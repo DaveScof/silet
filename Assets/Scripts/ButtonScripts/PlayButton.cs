@@ -20,11 +20,11 @@ namespace AppAdvisory.MathGame
 		override public void OnClicked()
 		{
 			
-#if UNITY_EDITOR
-			menuManager.GoToGame();
-			RemoveListener();
-			return;
-#endif
+//#if UNITY_EDITOR
+//			menuManager.GoToGame();
+//			RemoveListener();
+//			return;
+//#endif
 			if (KinetManager.Instance.CheckIsPlayable() )
 			{
 				menuManager.GoToGame();

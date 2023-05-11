@@ -1,0 +1,16 @@
+{
+    "name": "Analys",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f2ebe849b285e3a459550feea046d3f4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

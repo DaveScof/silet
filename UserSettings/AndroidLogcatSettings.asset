@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "R9DN6016H9J",
+    "m_SelectedDeviceId": "RZ8T217T2PJ",
     "m_SelectedPackage": {
-        "deviceId": "R9DN6016H9J",
-        "name": "com.QeneGames.MathGame",
-        "processId": 21328,
+        "deviceId": "RZ8T217T2PJ",
+        "name": "com.QeneGames.Silet",
+        "processId": 19624,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -36,6 +36,36 @@
             "deviceId": "R9DN6016H9J",
             "name": "com.QeneGames.MathGame",
             "processId": 21328,
+            "exited": false
+        },
+        {
+            "deviceId": "RZ8T217T2PJ",
+            "name": "com.QeneGames.Silet",
+            "processId": 22485,
+            "exited": true
+        },
+        {
+            "deviceId": "RZ8T217T2PJ",
+            "name": "com.QeneGames.Silet",
+            "processId": 24522,
+            "exited": true
+        },
+        {
+            "deviceId": "RZ8T217T2PJ",
+            "name": "com.QeneGames.Silet",
+            "processId": 26747,
+            "exited": true
+        },
+        {
+            "deviceId": "RZ8T217T2PJ",
+            "name": "com.QeneGames.Silet",
+            "processId": 29220,
+            "exited": true
+        },
+        {
+            "deviceId": "RZ8T217T2PJ",
+            "name": "com.QeneGames.Silet",
+            "processId": 19624,
             "exited": false
         }
     ],

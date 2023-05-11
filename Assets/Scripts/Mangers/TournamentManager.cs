@@ -10,16 +10,23 @@ using System.Linq;
 
 public class TournamentManager : Manager<TournamentManager>
 {
-    private FirebaseAuth auth;
+    [TextArea]
+    public string firebaseJsonConfig= "{\"project_info\":{\"project_number\":\"383446369866\",\"firebase_url\":\"https://silet-86a6b-default-rtdb.europe-west1.firebasedatabase.app\",\"project_id\":\"silet-86a6b\",\"storage_bucket\":\"silet-86a6b.appspot.com\"},\"client\":[{\"client_info\":{\"mobilesdk_app_id\":\"1:383446369866:android:47a4a800e0f4b6621208b3\",\"android_client_info\":{\"package_name\":\"com.QeneGames.Silet\"}},\"oauth_client\":[{\"client_id\":\"383446369866-eaf91at2sccsn8naqk972vl80chlvrra.apps.googleusercontent.com\",\"client_type\":3}],\"api_key\":[{\"current_key\":\"AIzaSyDs1Qd9fAQR5f_3veiKfb6emTeIqNQpsEo\"}],\"services\":{\"appinvite_service\":{\"other_platform_oauth_client\":[{\"client_id\":\"383446369866-eaf91at2sccsn8naqk972vl80chlvrra.apps.googleusercontent.com\",\"client_type\":3},{\"client_id\":\"383446369866-edmn7kmojnf8ud2i6kpqaol4nsq35514.apps.googleusercontent.com\",\"client_type\":2,\"ios_info\":{\"bundle_id\":\"com.QeneGames.Silet\"}}]}}}],\"configuration_version\":\"1\"}";
+
+    //private FirebaseAuth auth;
     private DatabaseReference reference;
     private FirebaseApp app;
+    [HideInInspector]
     public TournamentRule tournamentRule;
+    [HideInInspector]
     public TournamentData userTournamentData;
+    [HideInInspector]
     public string tournamentName;
+    [HideInInspector]
     public List<int> leaderBoardData;
 
     Firebase.Auth.FirebaseUser user;
-
+    [HideInInspector]
     public string tournamentImage;
 
     #region events
@@ -54,16 +61,9 @@ public class TournamentManager : Manager<TournamentManager>
 
     {
         leaderBoardData = new List<int>();
-        app = FirebaseApp.Create(
-            options: new Firebase.AppOptions
-            {
-                ApiKey = "AIzaSyDEQABN30EW-rzx3jBCsnngQf7aO1PLstA",
-                DatabaseUrl = new System.Uri("https://mathgame-9c6ce.firebaseio.com"),
-                ProjectId = "tras-9c6ce",
-            }
-        );
 
-        auth = FirebaseAuth.GetAuth(app);
+        FirebaseApp.Create(AppOptions.LoadFromJsonConfig(firebaseJsonConfig), "Silet");
+        app = FirebaseApp.GetInstance("Silet");
         reference = FirebaseDatabase.GetInstance(app).RootReference;
 
         reference.Child("tournament-active").ValueChanged += ActiveTournament;
@@ -81,7 +81,7 @@ public class TournamentManager : Manager<TournamentManager>
             Debug.LogError("Firebase Realtime Database error: " + args.DatabaseError);
             return;
         }
-        // DataSnapshot is a snapshot of the data at a Firebase Database location.
+
         DataSnapshot snapshot = args.Snapshot;
         Debug.Log(snapshot.Value);
         if (snapshot.Value != null)
@@ -96,24 +96,24 @@ public class TournamentManager : Manager<TournamentManager>
     }
 
 
-    public void Login(string token)
-    {
-        auth.SignInWithCustomTokenAsync(token).ContinueWith(task =>
-        {
-            if (task.IsCanceled)
-            {
-                Debug.LogError("SignInWithCustomTokenAsync was canceled.");
-                return;
-            }
-            if (task.IsFaulted)
-            {
-                Debug.LogError("SignInWithCustomTokenAsync encountered an error: " + task.Exception);
-                return;
-            }
-            user = task.Result;
-            GetUserProfile();
-        });
-    }
+    //public void Login(string token)
+    //{
+    //    auth.SignInWithCustomTokenAsync(token).ContinueWith(task =>
+    //    {
+    //        if (task.IsCanceled)
+    //        {
+    //            Debug.LogError("SignInWithCustomTokenAsync was canceled.");
+    //            return;
+    //        }
+    //        if (task.IsFaulted)
+    //        {
+    //            Debug.LogError("SignInWithCustomTokenAsync encountered an error: " + task.Exception);
+    //            return;
+    //        }
+    //        user = task.Result;
+    //        GetUserProfile();
+    //    });
+    //}
 
     public async void GetUserProfile()
     {
@@ -174,15 +174,15 @@ public class TournamentManager : Manager<TournamentManager>
     {
         if (tournamentRule.status == TournamentStatus.STOPPED) return;
 
-        string kinteID = user.UserId;
+        string kinetID = user.UserId;
         string phone = KinetManager.Instance.kinetSubscription.User.Phone;
         Debug.Log(phone);
         if (score < userTournamentData.score) return;
 
         Score scoreJson = new Score(score, System.DateTime.Now.ToString(), level);
-        TournamentData tournamentData = new TournamentData(phone, scoreJson, kinteID);
+        TournamentData tournamentData = new TournamentData(phone, scoreJson, kinetID);
 
-        reference.Child(tournamentName).Child("players").Child(kinteID).SetRawJsonValueAsync(JsonUtility.ToJson(tournamentData)).ContinueWith(task =>
+        reference.Child(tournamentName).Child("players").Child(kinetID).SetRawJsonValueAsync(JsonUtility.ToJson(tournamentData)).ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
@@ -190,7 +190,7 @@ public class TournamentManager : Manager<TournamentManager>
                 return;
             }
         });
-        reference.Child(tournamentName).Child("players").Child(kinteID).Child("scores").Child(score.ToString()).SetRawJsonValueAsync(JsonUtility.ToJson(scoreJson)).ContinueWith(task =>
+        reference.Child(tournamentName).Child("players").Child(kinetID).Child("scores").Child(score.ToString()).SetRawJsonValueAsync(JsonUtility.ToJson(scoreJson)).ContinueWith(task =>
         {
             if (task.IsFaulted)
             {

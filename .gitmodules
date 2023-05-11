@@ -4,3 +4,15 @@
 [submodule "Assets/Components/Detest"]
 	path = Assets/Components/Detest
 	url = https://gitlab.com/qene-unity-components/detest.git
+[submodule "Assets/Components/Core"]
+	path = Assets/Components/Core
+	url = https://gitlab.com/qene-unity-components/core.git
+[submodule "Assets/Components/Scaffold"]
+	path = Assets/Components/Scaffold
+	url = https://gitlab.com/qene-unity-components/scaffold.git
+[submodule "Assets/Components/Kinet"]
+	path = Assets/Components/Kinet
+	url = https://gitlab.com/qene-unity-components/kinet-sdk.git
+[submodule "analys"]
+	path = analys
+	url = https://gitlab.com/qene-unity-components/analys.git
